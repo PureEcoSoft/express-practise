@@ -45,9 +45,10 @@ app.post('/calv2', (req, res) => {
 })
 
 
-
+//insert employee
 app.post('/registration', (req, res) => {
     console.log(req.body);
+   if(req.body.empUsername){
     let emp = {
         "empUsername": req.body.empUsername,
         "empPassword": req.body.empPassword,
@@ -83,6 +84,16 @@ app.post('/registration', (req, res) => {
             //res.send("Database Connected ...!");
         }
     });
+   }
+   else{
+    custRes = {
+        "status": 400,
+        "error": err
+    }
+    res.json(custRes);
+   }
+
+   
 
 });
 
@@ -239,5 +250,5 @@ app.post('/getEmployee', (req, res) => {
 
 
 app.listen(3001, () =>
-    console.log('Example app listening on port 3000!'))
+    console.log('Example app listening on port 3001!'))
 
