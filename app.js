@@ -88,7 +88,7 @@ app.post('/registration', (req, res) => {
    else{
     custRes = {
         "status": 400,
-        "error": err
+        "error": "Please enter Username"
     }
     res.json(custRes);
    }
